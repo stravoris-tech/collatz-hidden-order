@@ -1,0 +1,22 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Python / notebooks (future-proof)
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+
+# LaTeX build junk (future-proof)
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
