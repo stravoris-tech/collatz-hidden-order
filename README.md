@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18119236.svg)](https://doi.org/10.5281/zenodo.18119236)
+
 # Collatz Hidden Order
 
 **A symbolic and structural framework for the accelerated Collatz map**
@@ -114,7 +116,10 @@ Future updates to the repository may include clarifications, reference implement
 ## Citation
 
 If you reference this work, please cite the paper directly.
-A formal citation entry will be added once the paper is archived.
+
+Gandhi Mohan, K. B. (2026).
+*The Hidden Order of the Collatz Problem.*
+Zenodo. https://doi.org/10.5281/zenodo.18119832
 
 <br>
 
