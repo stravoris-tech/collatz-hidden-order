@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite the paper."
+type: software
+
+title: "The Hidden Order of the Collatz Problem"
+
+authors:
+  - family-names: "Gandhi Mohan"
+    given-names: "Krishnaswamy Bharati"
+
+doi: 10.5281/zenodo.18119236
+url: "https://github.com/stravoris-tech/collatz-hidden-order"
+
+license: MIT
+
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Gandhi Mohan"
+      given-names: "Krishnaswamy Bharati"
+  title: "The Hidden Order of the Collatz Problem"
+  year: 2026
+  publisher: Zenodo
+  doi: 10.5281/zenodo.18119832
