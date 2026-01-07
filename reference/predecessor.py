@@ -16,7 +16,7 @@ from .arithmetic import assert_positive, assert_odd
 from .successor import accelerated_successor
 
 
-def odd_predecessors(n: int, *, search_limit: int = 1_000_000) -> list[int]:
+def odd_predecessors_bruteforce(n: int, *, search_limit: int = 1_000_000) -> list[int]:
     """
     Return a sorted list of odd predecessors p such that accelerated_successor(p) == n.
 
@@ -149,5 +149,69 @@ def validate_smallest_predecessor(*, up_to: int = 10_000, search_limit: int = 1_
 
     # If we get here, all checks passed.
 
+
+def predecessor_class(n: int, *, k_max: int) -> list[int]:
+    """
+    Return the first (k_max + 1) odd predecessors in the immediate predecessor class of n:
+        [Pred_0(n), Pred_1(n), ..., Pred_k_max(n)]
+
+    Raises ValueError if n is terminal (smallest_predecessor(n) == -1).
+    """
+    assert_positive(n)
+    assert_odd(n)
+    if k_max < 0:
+        raise ValueError(f"k_max must be >= 0; got {k_max}.")
+
+    p0 = smallest_predecessor(n)
+    if p0 == -1:
+        raise ValueError(f"n={n} has no predecessors (terminal class).")
+
+    out: list[int] = []
+    pow4 = 1
+    for _k in range(k_max + 1):
+        # Pred_k = 4^k * p0 + (4^k - 1)/3
+        out.append(pow4 * p0 + (pow4 - 1) // 3)
+        pow4 *= 4
+    return out
+
+
+def predecessor_class_iter(n: int):
+    """
+    Yield the infinite predecessor class Pred_0(n), Pred_1(n), Pred_2(n), ...
+
+    Raises ValueError if n is terminal.
+    """
+    assert_positive(n)
+    assert_odd(n)
+
+    p0 = smallest_predecessor(n)
+    if p0 == -1:
+        raise ValueError(f"n={n} has no predecessors (terminal class).")
+
+    pow4 = 1
+    k = 0
+    while True:
+        yield (pow4 * p0 + (pow4 - 1) // 3)
+        pow4 *= 4
+        k += 1
+
+
+def odd_predecessors(n: int, *, k_max: int = 25) -> list[int]:
+    """
+    Return a finite list of odd predecessors of n using the closed-form predecessor class.
+
+    Parameters
+    ----------
+    n : int
+        Target odd integer.
+    k_max : int
+        Number of predecessor-class elements to generate (controls output size).
+
+    Returns
+    -------
+    list[int]
+        [Pred_0(n), Pred_1(n), ..., Pred_k_max(n)].
+    """
+    return predecessor_class(n, k_max=k_max)
 
 
