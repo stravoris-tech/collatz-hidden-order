@@ -21,9 +21,15 @@ _CANONICAL_SEED_RESIDUES_MOD_24 = {3, 9, 15}
 
 def is_canonical_seed(m: int) -> bool:
     """
-    Return True iff m is a canonical terminal seed (m ≡ 3, 9, 15 mod 24).
+    Return True iff m is a canonical *terminal* seed.
+
+    We require:
+    - m ≡ 3, 9, 15 (mod 24), and
+    - m has no predecessor under the smallest-predecessor rule (terminal marker).
     """
-    return (m % 24) in _CANONICAL_SEED_RESIDUES_MOD_24
+    if (m % 24) not in _CANONICAL_SEED_RESIDUES_MOD_24:
+        return False
+    return smallest_predecessor(m) == -1
 
 
 def canonical_chain(n0: int, *, max_steps: int = 100_000) -> list[int]:
@@ -36,6 +42,9 @@ def canonical_chain(n0: int, *, max_steps: int = 100_000) -> list[int]:
     assert_positive(n0)
     assert_odd(n0)
 
+    if n0 < 3:
+        raise ValueError("canonical_chain is defined for odd integers n0 >= 3.")
+
     chain = [n0]
     n = n0
 
@@ -47,10 +56,9 @@ def canonical_chain(n0: int, *, max_steps: int = 100_000) -> list[int]:
 
         # Terminal marker from the predecessor rule:
         # if encountered, something is inconsistent with the "canonical seed" convention.
+
         if p == -1:
-            raise RuntimeError(
-                f"Encountered terminal marker -1 before reaching a canonical seed: start={n0}, at n={n}."
-            )
+            return chain  # chain ends at current n
 
         chain.append(p)
         n = p
