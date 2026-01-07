@@ -18,3 +18,13 @@ These scripts allow readers to:
 - decode orbit codes back to integers,
 
 without interacting with notebooks.
+
+
+## Quick start
+
+From the repository root:
+
+```bash
+python -m scripts.encode_decode 955
+python -m scripts.encode_decode --range 3 201
+```
