@@ -49,7 +49,7 @@ def min_odd_predecessor(n: int, *, search_limit: int = 1_000_000) -> int | None:
     """
     Return the smallest odd predecessor of n (within a bounded search), or None if not found.
     """
-    preds = odd_predecessors(n, search_limit=search_limit)
+    preds = odd_predecessors_bruteforce(n, search_limit=search_limit)
     return preds[0] if preds else None
 
 
