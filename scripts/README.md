@@ -28,3 +28,7 @@ From the repository root:
 python -m scripts.encode_decode 955
 python -m scripts.encode_decode --range 3 201
 ```
+
+```bash
+python -m scripts.terminal_seed 955
+```
