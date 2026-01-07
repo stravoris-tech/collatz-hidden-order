@@ -131,6 +131,17 @@ bounded domains.
 
 <br>
 
+## Tools
+
+From the repository root:
+
+```bash
+python -m scripts.encode_decode 955
+python -m scripts.terminal_seed 955
+```
+
+<br>
+
 ## Citation
 
 If you reference this work, please cite the paper directly.
