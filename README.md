@@ -131,6 +131,32 @@ bounded domains.
 
 <br>
 
+
+### Route skeleton (Appendix C-lite)
+
+The repository includes a standalone script that reproduces the
+**Structural vs Accelerated route skeleton** diagrams from Appendix C.
+
+This tool:
+
+- computes the orbit code ω(n) over {A,C,K} via the successor transform,
+- decodes the full structural predecessor chain,
+- constructs the accelerated chain by suppressing 01-tower interiors,
+- extracts the route skeleton (phase-boundary endpoints),
+- emits **Graphviz DOT** matching the paper’s diagram style.
+
+Example:
+
+```bash
+# Write DOT for n = 57
+python -m scripts.route_skeleton 57 --out output/route_57.dot
+
+# Render SVG (requires Graphviz)
+python -m scripts.route_skeleton 57 --out output/route_57.dot --render
+```
+
+The generated DOT can also be pasted directly into [Graphviz Online](https://dreampuf.github.io/GraphvizOnline/).
+
 ## Tools
 
 From the repository root:
