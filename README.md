@@ -91,15 +91,22 @@ Instead, it transforms the problem from an opaque iteration process into a **fin
 
 ## Repository scope
 
-This repository currently hosts the paper only.
+This repository accompanies the paper and serves two purposes:
 
-Over time, it may be extended with:
+1. To host the stable, citable version of the manuscript.
+2. To provide **reference-grade reproducibility artifacts** supporting verification of the paper’s symbolic constructions.
 
-- reference implementations of the symbolic constructions,
-- scripts for generating predecessor trees and orbit codes,
-- reproducible figures and experiments.
+At present, the repository contains the paper and figures only.
 
-The paper itself is **self-contained** and does not rely on code for verification.
+Planned additions (non-normative) include:
+
+- **Reference implementations** of the symbolic constructions defined in Appendix D,
+- Minimal scripts and notebooks demonstrating termination, encoding/decoding, and terminal family structure,
+- Reproducible generation of selected figures where feasible.
+
+All such artifacts prioritize **fidelity to the paper’s definitions** over performance or large-scale computation.
+
+The paper itself remains **self-contained**: all results are proved symbolically and do not rely on code for validity.
 
 <br>
 
@@ -110,6 +117,17 @@ This is an independent research project.
 The paper is complete and stable in its current form.
 
 Future updates to the repository may include clarifications, reference implementations, reproducible tooling, or potential extensions and refinements of the symbolic framework developed in the paper.
+
+<br>
+
+## Reproducibility note
+
+Where code artifacts are provided, they are intended as **executable witnesses**
+to the symbolic constructions developed in the paper.
+
+They are not required to follow the arguments, but allow readers to verify
+definitions, symbolic encodings, and structural claims computationally on
+bounded domains.
 
 <br>
 
